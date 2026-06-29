@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="TuneMee — официальный партнёр be Solve System. 
-  Даунпайпы, глушители, катализаторы для BMW, Audi, Porsche, Lamborghini. 
-  Доставка СДЭК по России и СНГ."/>
-  <meta name="keywords" content="даунпайп BMW, даунпайп Audi, даунпайп Porsche, 
-  глушитель нержавейка, титановый выхлоп, спортивный катализатор, be Solve System"/>
+  <meta name="description" content="TuneMee — официальный партнёр be Solve System. Даунпайпы, глушители, катализаторы для BMW, Audi, Porsche, Lamborghini. Доставка СДЭК по России и СНГ."/>
+  <meta name="keywords" content="даунпайп BMW, даунпайп Audi, даунпайп Porsche, глушитель нержавейка, титановый выхлоп, спортивный катализатор, be Solve System"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="TuneMee — Выхлопные системы be Solve System"/>
+  <meta property="og:description" content="Даунпайпы, глушители и катализаторы для BMW, Audi, Porsche. Доставка СДЭК."/>
+  <meta property="og:image" content="https://dmitry-mee.github.io/TuneMee/images/icon.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://dmitry-mee.github.io/TuneMee/"/>
   <title>TuneMee — Выхлопные системы be Solve System</title>
-  <link rel="icon" href="images/icon.JPEG" type="image/jpeg"/>
+  <link rel="icon" href="images/icon.png" type="image/png"/>
+  <link rel="apple-touch-icon" href="images/icon.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" 
-        rel="stylesheet"/>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -23,7 +25,7 @@
   <header class="header" id="header">
     <div class="header__inner container">
       <a href="#hero" class="logo">TUNE<span class="accent">MEE</span></a>
-      <nav class="nav" id="nav">
+      <nav class="nav" id="nav" aria-label="Основная навигация">
         <a href="#catalog" class="nav__link">Каталог</a>
         <a href="#mufflers" class="nav__link">Глушители</a>
         <a href="#about" class="nav__link">О нас</a>
@@ -32,23 +34,23 @@
       </nav>
       <div class="header__actions">
         <a href="https://instagram.com/Dmitry_Mee" target="_blank" rel="noopener noreferrer" class="btn-social">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
           Instagram
         </a>
         <a href="https://t.me/Dmitry_Mee" target="_blank" rel="noopener noreferrer" class="btn-social btn-social--tg">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
           Telegram
         </a>
         <button class="btn btn--primary" id="callbackBtn">Заказать звонок</button>
       </div>
-      <button class="burger" id="burger" aria-label="Меню">
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
   <!-- MOBILE NAV -->
-  <div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Мобильная навигация">
     <a href="#catalog" class="mobile-nav__link">Каталог</a>
     <a href="#mufflers" class="mobile-nav__link">Глушители</a>
     <a href="#about" class="mobile-nav__link">О нас</a>
@@ -61,52 +63,52 @@
   </div>
 
   <!-- HERO -->
-  <section class="hero" id="hero">
-      <div class="hero__slides" id="heroSlides">
-          <div class="hero__slide active" style="background-image: url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1600&q=80')"></div>
-          <div class="hero__slide" style="background-image: url('https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1600&q=80')"></div>
-          <div class="hero__slide" style="background-image: url('https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1600&q=80')"></div>
+  <section class="hero" id="hero" aria-label="Главный экран">
+    <div class="hero__slides" id="heroSlides" aria-hidden="true">
+      <div class="hero__slide active" style="background-image: url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1600&q=80')"></div>
+      <div class="hero__slide" style="background-image: url('https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1600&q=80')"></div>
+      <div class="hero__slide" style="background-image: url('https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1600&q=80')"></div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content container">
+      <p class="hero__eyebrow">Официальный партнёр be Solve System</p>
+      <h1 class="hero__title">ИНЖЕНЕРНЫЕ<br/><span class="accent">ВЫХЛОПНЫЕ</span><br/>СИСТЕМЫ</h1>
+      <p class="hero__desc">Даунпайпы, глушители и катализаторы для BMW M, Audi RS, Porsche, Lamborghini Urus. Аргоновая сварка. Нержавейка и титан. Доставка СДЭК по России и СНГ.</p>
+      <div class="hero__btns">
+        <a href="#catalog" class="btn btn--primary btn--lg">Смотреть каталог</a>
+        <a href="https://t.me/Dmitry_Mee" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--lg">Написать в Telegram</a>
       </div>
-      <div class="hero__overlay"></div>
-      <div class="hero__content container">
-          <p class="hero__eyebrow">Официальный партнёр be Solve System</p>
-          <h1 class="hero__title">ИНЖЕНЕРНЫЕ<br/><span class="accent">ВЫХЛОПНЫЕ</span><br/>СИСТЕМЫ</h1>
-          <p class="hero__desc">Даунпайпы, глушители и катализаторы для BMW M, Audi RS, Porsche, Lamborghini Urus. Аргоновая сварка. Нержавейка и титан. Доставка СДЭК по России и СНГ.</p>
-          <div class="hero__btns">
-              <a href="#catalog" class="btn btn--primary btn--lg">Смотреть каталог</a>
-              <a href="https://t.me/Dmitry_Mee" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--lg">Написать в Telegram</a>
-          </div>
-          <div class="hero__stats">
-              <div class="hero__stat">
-                  <span class="hero__stat-num">35+</span>
-                  <span class="hero__stat-label">моделей авто</span>
-              </div>
-              <div class="hero__stat-divider"></div>
-              <div class="hero__stat">
-                  <span class="hero__stat-num">∞</span>
-                  <span class="hero__stat-label">гарантия на швы</span>
-              </div>
-              <div class="hero__stat-divider"></div>
-              <div class="hero__stat">
-                  <span class="hero__stat-num">СДЭК</span>
-                  <span class="hero__stat-label">доставка по СНГ</span>
-              </div>
-          </div>
+      <div class="hero__stats" aria-label="Ключевые показатели">
+        <div class="hero__stat">
+          <span class="hero__stat-num">35+</span>
+          <span class="hero__stat-label">моделей авто</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">∞</span>
+          <span class="hero__stat-label">гарантия на швы</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">СДЭК</span>
+          <span class="hero__stat-label">доставка по СНГ</span>
+        </div>
       </div>
-      <div class="hero__slider-controls">
-          <button class="hero__dot active" data-index="0" aria-label="Слайд 1"></button>
-          <button class="hero__dot" data-index="1" aria-label="Слайд 2"></button>
-          <button class="hero__dot" data-index="2" aria-label="Слайд 3"></button>
-      </div>
-      <div class="hero__slide-labels">
-          <span class="hero__slide-label active">Porsche 911</span>
-          <span class="hero__slide-label">Audi RSQ8</span>
-          <span class="hero__slide-label">BMW M5 G90</span>
-      </div>
+    </div>
+    <div class="hero__slider-controls" role="tablist" aria-label="Слайды">
+      <button class="hero__dot active" data-index="0" aria-label="Слайд 1" role="tab" aria-selected="true"></button>
+      <button class="hero__dot" data-index="1" aria-label="Слайд 2" role="tab" aria-selected="false"></button>
+      <button class="hero__dot" data-index="2" aria-label="Слайд 3" role="tab" aria-selected="false"></button>
+    </div>
+    <div class="hero__slide-labels" aria-hidden="true">
+      <span class="hero__slide-label active">Porsche 911</span>
+      <span class="hero__slide-label">Audi RSQ8</span>
+      <span class="hero__slide-label">BMW M5 G90</span>
+    </div>
   </section>
 
   <!-- BRANDS BAR -->
-  <div class="brands-bar">
+  <div class="brands-bar" aria-label="Поддерживаемые марки автомобилей">
     <div class="container brands-bar__inner">
       <span class="brands-bar__label">Совместимость:</span>
       <div class="brands-bar__list">
@@ -128,27 +130,23 @@
         <h2 class="section__title">Даунпайпы и <span class="accent">катализаторы</span></h2>
         <p class="section__desc">Выберите марку автомобиля для просмотра доступных позиций</p>
       </div>
-
-      <!-- FILTER TABS -->
-      <div class="filter-tabs" id="filterTabs">
-        <button class="filter-tab active" data-brand="all">Все</button>
-        <button class="filter-tab" data-brand="BMW">BMW</button>
-        <button class="filter-tab" data-brand="Porsche">Porsche</button>
-        <button class="filter-tab" data-brand="Audi">Audi</button>
-        <button class="filter-tab" data-brand="Lamborghini">Lamborghini</button>
-        <button class="filter-tab" data-brand="Toyota">Toyota</button>
+      <div class="filter-tabs" id="filterTabs" role="tablist" aria-label="Фильтр по марке">
+        <button class="filter-tab active" data-brand="all" role="tab" aria-selected="true">Все</button>
+        <button class="filter-tab" data-brand="BMW" role="tab" aria-selected="false">BMW</button>
+        <button class="filter-tab" data-brand="Porsche" role="tab" aria-selected="false">Porsche</button>
+        <button class="filter-tab" data-brand="Audi" role="tab" aria-selected="false">Audi</button>
+        <button class="filter-tab" data-brand="Lamborghini" role="tab" aria-selected="false">Lamborghini</button>
+        <button class="filter-tab" data-brand="Toyota" role="tab" aria-selected="false">Toyota</button>
       </div>
-
-      <!-- PRODUCTS GRID -->
-      <div class="products-grid" id="productsGrid"></div>
+      <div class="products-grid" id="productsGrid" aria-live="polite"></div>
     </div>
   </section>
 
   <!-- PRODUCT MODAL -->
-  <div class="modal-overlay" id="productModal">
+  <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
     <div class="modal modal--product">
-      <button class="modal__close" id="productModalClose" aria-label="Закрыть">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <button class="modal__close" id="productModalClose" aria-label="Закрыть окно товара">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="product-modal__content" id="productModalContent"></div>
     </div>
@@ -167,20 +165,20 @@
 
           <div class="config-group">
             <label class="config-label">Форма корпуса</label>
-            <div class="shape-grid" id="shapeGrid">
-              <button class="shape-btn active" data-shape="round">
-                <span class="shape-btn__icon">○</span>
+            <div class="shape-grid" id="shapeGrid" role="group" aria-label="Выбор формы корпуса">
+              <button class="shape-btn active" data-shape="round" aria-pressed="true">
+                <span class="shape-btn__icon" aria-hidden="true">○</span>
                 <span class="shape-btn__name">Круглый</span>
               </button>
-              <button class="shape-btn" data-shape="oval">
-                <span class="shape-btn__icon">⬭</span>
+              <button class="shape-btn" data-shape="oval" aria-pressed="false">
+                <span class="shape-btn__icon" aria-hidden="true">⬭</span>
                 <span class="shape-btn__name">Овальный</span>
               </button>
             </div>
           </div>
 
           <div class="config-group" id="roundSizeGroup">
-            <label class="config-label">Диаметр корпуса</label>
+            <label class="config-label" for="roundSize">Диаметр корпуса</label>
             <div class="select-wrapper">
               <select class="form-select" id="roundSize">
                 <option value="100">100 мм (усиленный 1.5мм)</option>
@@ -193,7 +191,7 @@
           </div>
 
           <div class="config-group hidden" id="ovalTypeGroup">
-            <label class="config-label">Тип овального глушителя</label>
+            <label class="config-label" for="ovalType">Тип овального глушителя</label>
             <div class="select-wrapper">
               <select class="form-select" id="ovalType">
                 <option value="CC">C-C (вход-вход по центру)</option>
@@ -219,7 +217,7 @@
           </div>
 
           <div class="config-group hidden" id="ovalSizeGroup">
-            <label class="config-label">Размер овала</label>
+            <label class="config-label" for="ovalSize">Размер овала</label>
             <div class="select-wrapper">
               <select class="form-select" id="ovalSize">
                 <option value="110x172">110×172 мм</option>
@@ -231,7 +229,7 @@
           </div>
 
           <div class="config-group">
-            <label class="config-label">Материал и исполнение</label>
+            <label class="config-label" for="mufflerMaterial">Материал и исполнение</label>
             <div class="select-wrapper">
               <select class="form-select" id="mufflerMaterial">
                 <option value="steel_flow">Нержавейка — Прямоточный</option>
@@ -245,7 +243,7 @@
           </div>
 
           <div class="config-group" id="pipeGroup">
-            <label class="config-label">Диаметр трубы</label>
+            <label class="config-label" for="pipeDia">Диаметр трубы</label>
             <div class="select-wrapper">
               <select class="form-select" id="pipeDia">
                 <option value="52">52 мм</option>
@@ -259,18 +257,23 @@
           </div>
 
           <div class="config-group">
-            <label class="config-label">Длина корпуса: <span class="accent" id="lengthVal">200</span> мм</label>
-            <input type="range" class="length-slider" id="lengthSlider" min="200" max="600" step="50" value="200"/>
-            <div class="length-marks">
+            <label class="config-label" for="lengthSlider">
+              Длина корпуса: <span class="accent" id="lengthVal">200</span> мм
+            </label>
+            <input type="range" class="length-slider" id="lengthSlider"
+                   min="200" max="600" step="50" value="200"
+                   aria-valuemin="200" aria-valuemax="600" aria-valuenow="200"
+                   aria-valuetext="200 мм"/>
+            <div class="length-marks" aria-hidden="true">
               <span>200</span><span>300</span><span>400</span><span>500</span><span>600</span>
             </div>
           </div>
 
           <div class="config-group">
-            <label class="config-label">Покрытие</label>
+            <label class="config-label" for="coating">Покрытие</label>
             <div class="select-wrapper">
               <select class="form-select" id="coating">
-                <option value="standard" selected>Сатинированное покрытие (стандарт)</option>
+                <option value="satin" selected>Сатинированное покрытие (стандарт)</option>
                 <option value="matte">Матовое покрытие</option>
                 <option value="polished">Полированная нержавейка</option>
               </select>
@@ -280,9 +283,9 @@
         </div>
 
         <div class="muffler-config__result">
-          <div class="price-card">
+          <div class="price-card" role="region" aria-label="Стоимость глушителя">
             <p class="price-card__label">Стоимость глушителя</p>
-            <div class="price-card__price" id="mufflerPrice">7 400 ₽</div>
+            <div class="price-card__price" id="mufflerPrice" aria-live="polite">6 300 ₽</div>
             <div class="price-card__breakdown">
               <div class="breakdown-item">
                 <span class="breakdown-item__name">Форма</span>
@@ -290,7 +293,7 @@
               </div>
               <div class="breakdown-item">
                 <span class="breakdown-item__name">Размер</span>
-                <span class="breakdown-item__val" id="b-size">100 мм</span>
+                <span class="breakdown-item__val" id="b-size">100 мм (диаметр)</span>
               </div>
               <div class="breakdown-item">
                 <span class="breakdown-item__name">Материал</span>
@@ -314,23 +317,23 @@
           </div>
           <div class="muffler-info">
             <div class="muffler-info__item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>100% нержавеющая сталь или титан</span>
             </div>
             <div class="muffler-info__item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Гарантия 2 года или 100 000 км</span>
             </div>
             <div class="muffler-info__item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Матовое или сатинированное покрытие</span>
             </div>
             <div class="muffler-info__item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Перфорация собственной разработки</span>
             </div>
             <div class="muffler-info__item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Нанесение эмблем по запросу</span>
             </div>
           </div>
@@ -350,7 +353,7 @@
           <p class="about__desc">Мы — официальный партнёр, который помогает подобрать нужный компонент, оформить заказ и организовать доставку СДЭК от производителя напрямую к вам.</p>
           <div class="about__features">
             <div class="about__feature">
-              <div class="about__feature-icon">
+              <div class="about__feature-icon" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div>
@@ -359,7 +362,7 @@
               </div>
             </div>
             <div class="about__feature">
-              <div class="about__feature-icon">
+              <div class="about__feature-icon" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
               <div>
@@ -368,7 +371,7 @@
               </div>
             </div>
             <div class="about__feature">
-              <div class="about__feature-icon">
+              <div class="about__feature-icon" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
               </div>
               <div>
@@ -377,7 +380,7 @@
               </div>
             </div>
             <div class="about__feature">
-              <div class="about__feature-icon">
+              <div class="about__feature-icon" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
               </div>
               <div>
@@ -388,8 +391,10 @@
           </div>
         </div>
         <div class="about__image">
-          <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80" alt="Производство выхлопных систем be Solve System" loading="lazy"/>
-          <div class="about__image-badge">
+          <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80"
+               alt="Производство выхлопных систем be Solve System"
+               loading="lazy" width="800" height="600"/>
+          <div class="about__image-badge" aria-label="Сертификат ISO 9001">
             <span class="about__image-badge-num">ISO</span>
             <span class="about__image-badge-text">9001</span>
           </div>
@@ -408,22 +413,22 @@
       </div>
       <div class="delivery__grid">
         <div class="delivery-card">
-          <div class="delivery-card__num">01</div>
+          <div class="delivery-card__num" aria-hidden="true">01</div>
           <h3 class="delivery-card__title">Оформите заказ</h3>
           <p class="delivery-card__desc">Выберите позицию в каталоге или настройте глушитель в конфигураторе. Нажмите «Заказать в Telegram».</p>
         </div>
         <div class="delivery-card">
-          <div class="delivery-card__num">02</div>
+          <div class="delivery-card__num" aria-hidden="true">02</div>
           <h3 class="delivery-card__title">Подтверждение</h3>
           <p class="delivery-card__desc">Уточняем совместимость по VIN, подтверждаем срок изготовления и финальную стоимость.</p>
         </div>
         <div class="delivery-card">
-          <div class="delivery-card__num">03</div>
+          <div class="delivery-card__num" aria-hidden="true">03</div>
           <h3 class="delivery-card__title">Производство</h3>
           <p class="delivery-card__desc">Изготовление 3–10 рабочих дней. Каждый компонент делается под ваш автомобиль.</p>
         </div>
         <div class="delivery-card">
-          <div class="delivery-card__num">04</div>
+          <div class="delivery-card__num" aria-hidden="true">04</div>
           <h3 class="delivery-card__title">Отправка и трек</h3>
           <p class="delivery-card__desc">Производитель отправляет СДЭК. Вы получаете трек-номер. Оплата доставки при получении.</p>
         </div>
@@ -454,7 +459,7 @@
         <div class="faq-item">
           <button class="faq-item__q" aria-expanded="false">
             <span>Появится ли ошибка Check Engine после установки даунпайпа?</span>
-            <svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-item__a">
             <p>При установке даунпайпа без катализатора датчик кислорода фиксирует изменение состава выхлопа — появляется ошибка. Решения:</p>
@@ -466,7 +471,7 @@
         <div class="faq-item">
           <button class="faq-item__q" aria-expanded="false">
             <span>Какая гарантия на продукцию be Solve System?</span>
-            <svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-item__a">
             <p><strong>Пожизненная гарантия на сварные швы</strong> даунпайпов и коллекторов — аргоновая сварка в среде защитного газа исключает окисление.</p>
@@ -477,7 +482,7 @@
         <div class="faq-item">
           <button class="faq-item__q" aria-expanded="false">
             <span>Нержавейка AISI 304 или титан — что выбрать?</span>
-            <svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-item__a">
             <p><strong>Нержавейка AISI 304</strong> — оптимальный выбор. Устойчива к коррозии и высоким температурам, служит десятилетиями. Подходит для большинства применений.</p>
@@ -487,7 +492,7 @@
         <div class="faq-item">
           <button class="faq-item__q" aria-expanded="false">
             <span>Как рассчитываются цены на глушители?</span>
-            <svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-item__a">
             <p>Цена глушителя зависит от типа, размера корпуса, материала, исполнения (прямоточный/камерный/резонатор) и длины. Базовая цена указана для минимальной длины. За каждые дополнительные 50 мм добавляется 700–800 ₽ в зависимости от типа.</p>
@@ -497,7 +502,7 @@
         <div class="faq-item">
           <button class="faq-item__q" aria-expanded="false">
             <span>Спортивные катализаторы Bioten/Emitec — что это?</span>
-            <svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-item__a">
             <p>Bioten Neutralisators (Emitec) — российское производство, содержание драгоценных металлов 33 г/фут³. Применяются стандарты Евро 5+ (300cell) и Евро 6 (200cell).</p>
@@ -530,55 +535,58 @@
         <p class="footer__tagline">Официальный партнёр be Solve System</p>
         <p class="footer__copy">© 2025 TuneMee. Екатеринбург.</p>
       </div>
-      <div class="footer__nav">
+      <nav class="footer__nav" aria-label="Каталог">
         <p class="footer__nav-title">Каталог</p>
         <a href="#catalog" class="footer__link">Даунпайпы BMW</a>
         <a href="#catalog" class="footer__link">Даунпайпы Porsche</a>
         <a href="#catalog" class="footer__link">Даунпайпы Audi</a>
         <a href="#catalog" class="footer__link">Lamborghini Urus</a>
         <a href="#mufflers" class="footer__link">Глушители и резонаторы</a>
-      </div>
-      <div class="footer__nav">
+      </nav>
+      <nav class="footer__nav" aria-label="Информация">
         <p class="footer__nav-title">Информация</p>
         <a href="#about" class="footer__link">О нас</a>
         <a href="#delivery" class="footer__link">Доставка</a>
         <a href="#faq" class="footer__link">FAQ</a>
-      </div>
-      <div class="footer__nav">
+      </nav>
+      <nav class="footer__nav" aria-label="Связь">
         <p class="footer__nav-title">Связь</p>
         <a href="https://t.me/Dmitry_Mee" target="_blank" rel="noopener noreferrer" class="footer__link">Telegram</a>
         <a href="https://instagram.com/Dmitry_Mee" target="_blank" rel="noopener noreferrer" class="footer__link">Instagram</a>
-      </div>
+      </nav>
     </div>
   </footer>
 
   <!-- CALLBACK MODAL -->
-  <div class="modal-overlay" id="callbackModal">
+  <div class="modal-overlay" id="callbackModal" role="dialog" aria-modal="true" aria-labelledby="callbackModalTitle">
     <div class="modal">
-      <button class="modal__close" id="callbackModalClose" aria-label="Закрыть">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <button class="modal__close" id="callbackModalClose" aria-label="Закрыть форму обратного звонка">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <p class="modal__eyebrow">Обратный звонок</p>
-      <h2 class="modal__title">Перезвоним<br/><span class="accent">в течение часа</span></h2>
+      <h2 class="modal__title" id="callbackModalTitle">Перезвоним<br/><span class="accent">в течение часа</span></h2>
       <p class="modal__desc">Оставьте имя и контакт — поможем подобрать нужный компонент и оформить заказ.</p>
       <form class="modal__form" id="callbackForm" novalidate>
         <div class="form-group">
           <label class="form-label" for="cbName">Ваше имя</label>
-          <input class="form-input" type="text" id="cbName" placeholder="Дмитрий" required/>
+          <input class="form-input" type="text" id="cbName"
+                 placeholder="Дмитрий" required autocomplete="given-name"/>
         </div>
         <div class="form-group">
           <label class="form-label" for="cbContact">Телефон или Telegram</label>
-          <input class="form-input" type="text" id="cbContact" placeholder="+7 900 000-00-00 или @username" required/>
+          <input class="form-input" type="text" id="cbContact"
+                 placeholder="+7 900 000-00-00 или @username" required autocomplete="tel"/>
         </div>
         <div class="form-group">
           <label class="form-label" for="cbCar">Ваш автомобиль (необязательно)</label>
-          <input class="form-input" type="text" id="cbCar" placeholder="BMW M5 F90, двигатель S63"/>
+          <input class="form-input" type="text" id="cbCar"
+                 placeholder="BMW M5 F90, двигатель S63"/>
         </div>
         <button type="submit" class="btn btn--primary btn--full">Отправить в Telegram</button>
       </form>
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>

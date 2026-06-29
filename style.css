@@ -83,19 +83,12 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
     overflow: hidden;
 }
 
-.hero__slides {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
 .hero__slide {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center 35%;
     opacity: 0;
-    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     transform: scale(1.04);
     transition: opacity 1.2s ease, transform 6s ease;
 }
@@ -260,8 +253,20 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
 
 /* PRODUCTS GRID */
 .products-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-.product-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; transition: all var(--tr); cursor: pointer; }
-.product-card:hover { border-color: var(--accent-border); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 20px rgba(0,240,255,0.07); }
+.product-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 0;              /* ← сразу 0, т.к. есть __body с padding */
+    overflow: hidden;
+    transition: all var(--tr);
+    cursor: pointer;
+}
+.product-card:hover {
+    border-color: var(--accent-border);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 20px rgba(0,240,255,0.07);
+}
 .product-card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .product-card__brand { display: inline-flex; padding: 4px 10px; background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 6px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
 .product-card__type { font-size: 0.75rem; color: var(--g500); font-weight: 500; white-space: nowrap; }
@@ -356,7 +361,10 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
 .form-select { width: 100%; padding: 13px 40px 13px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); color: var(--white); font-family: var(--font); font-size: 0.93rem; font-weight: 500; appearance: none; -webkit-appearance: none; outline: none; transition: all var(--tr); cursor: pointer; }
 .form-select:hover { border-color: var(--accent-border); }
 .form-select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,240,255,0.1); }
-.form-select option { background: #1a1d28; }
+.form-select option:disabled {
+    color: var(--g500);
+    background: var(--bg3);
+}
 .form-input { width: 100%; padding: 13px 14px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); color: var(--white); font-family: var(--font); font-size: 0.93rem; outline: none; transition: all var(--tr); }
 .form-input::placeholder { color: var(--g500); }
 .form-input:hover { border-color: var(--accent-border); }
