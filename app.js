@@ -810,7 +810,6 @@
     function updateOvalSizes() {
         var type = ovalTypeEl.value;
         if (!type || !OVAL_PRICES[type]) {
-            // Если тип не найден или не определен, выберем первый доступный
             var firstType = Object.keys(OVAL_PRICES)[0];
             if (firstType && ovalTypeEl.value !== firstType) {
                 ovalTypeEl.value = firstType;
@@ -852,6 +851,7 @@
         var length = parseInt(sliderEl.value, 10);
         var basePrice = 0;
         var typeKey = "round";
+        var isTitanium = mat.indexOf("titan") !== -1;
 
         if (currentShape === "round") {
             var size = roundSizeEl.value;
@@ -882,7 +882,10 @@
 
         var surcharge = LENGTH_SURCHARGE[typeKey] || { base: 200, step: 700 };
         var extraSteps = Math.max(0, (length - surcharge.base) / 50);
-        var total = basePrice + extraSteps * surcharge.step;
+        
+        // Для титана шаг увеличивается в 2 раза
+        var stepValue = isTitanium ? surcharge.step * 2 : surcharge.step;
+        var total = basePrice + extraSteps * stepValue;
         var matLabels = getMaterialLabel(mat);
 
         bMat.textContent = matLabels[0];
