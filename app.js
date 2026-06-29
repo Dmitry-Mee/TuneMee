@@ -712,7 +712,7 @@
             '<thead><tr><th>Комплектация</th><th>Цена</th></tr></thead>' +
             "<tbody>" + rows + "</tbody>" +
             "</table>" +
-            '<div class="pm__note">Цены без НДС (наличный расчёт). Уточните совместимость по VIN. Доставка СДЭК оплачивается при получении.</div>' +
+            '<div class="pm__note">Цены без НДС (наличный расчёт). Уточните совместимость по VIN. Доставка СДЭК оплачивается отдельно.</div>' +
             '<div class="pm__btns">' +
             '<button class="btn btn--primary pm-order-btn" data-title="' + encodeURIComponent(p.title) + '" data-compat="' + encodeURIComponent(p.compat) + '">Заказать в Telegram</button>' +
             '<button class="btn btn--outline pm-close-btn">Закрыть</button>' +
@@ -721,7 +721,7 @@
         productModalContent.querySelector(".pm-order-btn").addEventListener("click", function () {
             var title = decodeURIComponent(this.getAttribute("data-title"));
             var compat = decodeURIComponent(this.getAttribute("data-compat"));
-            var msg = "Здравствуйте! Интересует: " + title + "\n\nСовместимость: " + compat + "\n\nПрошу уточнить наличие, сроки и детали заказа.";
+            var msg = "Здравствуйте! Интересует: " + title + "\n\nСовместимость: " + compat + "\n\nПрошу уточнить наличие, сроки и доступность.";
             window.open("https://t.me/Dmitry_Mee?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
         });
 
@@ -809,15 +809,30 @@
 
     function updateOvalSizes() {
         var type = ovalTypeEl.value;
+        if (!type || !OVAL_PRICES[type]) {
+            // Если тип не найден или не определен, выберем первый доступный
+            var firstType = Object.keys(OVAL_PRICES)[0];
+            if (firstType && ovalTypeEl.value !== firstType) {
+                ovalTypeEl.value = firstType;
+                type = firstType;
+            }
+        }
         var prices = OVAL_PRICES[type] || {};
         var sizes = Object.keys(prices);
         ovalSizeEl.innerHTML = "";
-        sizes.forEach(function (s) {
+        if (sizes.length === 0) {
             var opt = document.createElement("option");
-            opt.value = s;
-            opt.textContent = s.replace("x", "×") + " мм";
+            opt.value = "";
+            opt.textContent = "Нет доступных размеров";
             ovalSizeEl.appendChild(opt);
-        });
+        } else {
+            sizes.forEach(function (s) {
+                var opt = document.createElement("option");
+                opt.value = s;
+                opt.textContent = s.replace("x", "×") + " мм";
+                ovalSizeEl.appendChild(opt);
+            });
+        }
     }
 
     function getMaterialLabel(val) {
@@ -855,7 +870,17 @@
             bSize.textContent = (ovalSize || "—").replace("x", "×") + " мм";
         }
 
-        var surcharge = LENGTH_SURCHARGE[typeKey] || { base: 250, step: 700 };
+        // Если цена null, показываем "Уточнить"
+        if (basePrice === null || basePrice === 0) {
+            mufflerPriceEl.classList.add("flash");
+            setTimeout(function () {
+                mufflerPriceEl.textContent = "Уточнить";
+                mufflerPriceEl.classList.remove("flash");
+            }, 120);
+            return { total: 0, mat: mat, length: length, matLabels: getMaterialLabel(mat) };
+        }
+
+        var surcharge = LENGTH_SURCHARGE[typeKey] || { base: 200, step: 700 };
         var extraSteps = Math.max(0, (length - surcharge.base) / 50);
         var total = basePrice + extraSteps * surcharge.step;
         var matLabels = getMaterialLabel(mat);
@@ -868,7 +893,7 @@
 
         mufflerPriceEl.classList.add("flash");
         setTimeout(function () {
-            mufflerPriceEl.textContent = total > 0 ? fmt(total) : "Уточнить";
+            mufflerPriceEl.textContent = fmt(total);
             mufflerPriceEl.classList.remove("flash");
         }, 120);
 
@@ -884,6 +909,7 @@
         calcMuffler();
     });
 
+    // Инициализация: устанавливаем размеры овала и делаем первый расчёт
     updateOvalSizes();
     calcMuffler();
 
