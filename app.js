@@ -564,10 +564,10 @@
             "150x300": { steel_flow: 32000, steel_chamber: 34000, titan_flow: 64000, titan_chamber: 68000, steel_res: null, steel_res_cam: null }
         },
         "OFFIIcam": {
-            "130x190": { steel_flow: 23800, steel_chamber: null, titan_flow: 47600, titan_chamber: null, steel_res: null, steel_res_cam: null },
-            "120x265": { steel_flow: 25000, steel_chamber: null, titan_flow: 50000, titan_chamber: null, steel_res: null, steel_res_cam: null },
-            "150x300": { steel_flow: 25000, steel_chamber: null, titan_flow: 50000, titan_chamber: null, steel_res: null, steel_res_cam: null }
-        },
+    "150x300": { steel_flow: 25000, steel_chamber: null, titan_flow: 50000, titan_chamber: null, steel_res: null, steel_res_cam: null },
+    "120x265": { steel_flow: 25000, steel_chamber: null, titan_flow: 50000, titan_chamber: null, steel_res: null, steel_res_cam: null },
+    "130x190": { steel_flow: 23800, steel_chamber: null, titan_flow: 47600, titan_chamber: null, steel_res: null, steel_res_cam: null }
+}
         "OFFII2cam": {
             "130x190": { steel_flow: 24300, steel_chamber: null, titan_flow: 48600, titan_chamber: null, steel_res: null, steel_res_cam: null },
             "120x265": { steel_flow: 25500, steel_chamber: null, titan_flow: 51000, titan_chamber: null, steel_res: null, steel_res_cam: null },
@@ -781,31 +781,43 @@
         }
     }
 
-    shapeGrid.addEventListener("click", function (e) {
-        var btn = e.target.closest(".shape-btn");
-        if (!btn) return;
-        qq(".shape-btn").forEach(function (b) { b.classList.remove("active"); });
-        btn.classList.add("active");
-        currentShape = btn.getAttribute("data-shape");
-        if (currentShape === "round") {
-            roundSizeGroup.classList.remove("hidden");
-            ovalTypeGroup.classList.add("hidden");
-            ovalSizeGroup.classList.add("hidden");
-        } else {
-            roundSizeGroup.classList.add("hidden");
-            ovalTypeGroup.classList.remove("hidden");
-            ovalSizeGroup.classList.remove("hidden");
-        }
-        updateOvalSizes();
-        updateMufflerPreview();
-        calcMuffler();
-    });
+    function updateSliderMin() {
+    if (currentShape === "round") {
+        sliderEl.min = 200;
+        return;
+    }
+    var type = ovalTypeEl.value;
+    var surcharge = LENGTH_SURCHARGE[type] || { base: 250, step: 700 };
+    var minLen = surcharge.base;
+    sliderEl.min = minLen;
+    if (parseInt(sliderEl.value, 10) < minLen) {
+        sliderEl.value = minLen;
+        lengthValEl.textContent = minLen;
+    }
+    // Обновляем метки
+    updateLengthMarks(minLen);
+}
 
-    ovalTypeEl.addEventListener("change", function () {
-        updateOvalSizes();
-        updateMufflerPreview();
-        calcMuffler();
-    });
+function updateLengthMarks(minLen) {
+    var marksEl = document.querySelector(".length-marks");
+    if (!marksEl) return;
+    var step = Math.round((600 - minLen) / 4);
+    var marks = [];
+    for (var i = 0; i < 4; i++) {
+        marks.push(minLen + step * i);
+    }
+    marks.push(600);
+    marksEl.innerHTML = marks.map(function(m) {
+        return "<span>" + m + "</span>";
+    }).join("");
+}
+
+ovalTypeEl.addEventListener("change", function () {
+    updateOvalSizes();
+    updateSliderMin(); // ← добавить
+    updateMufflerPreview();
+    calcMuffler();
+});
 
     function updateOvalSizes() {
         var type = ovalTypeEl.value;
@@ -914,7 +926,7 @@
 
     // Инициализация: устанавливаем размеры овала, выбираем резонатор по умолчанию и делаем первый расчёт
     updateOvalSizes();
-    materialEl.value = "steel_res";
+    materialEl.value = "steel_flow";
     calcMuffler();
 
     document.getElementById("mufflerOrderBtn").addEventListener("click", function () {
