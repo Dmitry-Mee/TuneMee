@@ -912,8 +912,9 @@
         calcMuffler();
     });
 
-    // Инициализация: устанавливаем размеры овала и делаем первый расчёт
+    // Инициализация: устанавливаем размеры овала, выбираем резонатор по умолчанию и делаем первый расчёт
     updateOvalSizes();
+    materialEl.value = "steel_res";
     calcMuffler();
 
     document.getElementById("mufflerOrderBtn").addEventListener("click", function () {
