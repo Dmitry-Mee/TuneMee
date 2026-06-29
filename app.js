@@ -390,7 +390,7 @@
             "120x265": { steel_flow: 18100, steel_chamber: 20100, titan_flow: 36200, titan_chamber: 40200, steel_res: 19005, steel_res_cam: 21105 },
             "150x300": { steel_flow: 18100, steel_chamber: 20100, titan_flow: 36200, titan_chamber: 40200, steel_res: 19005, steel_res_cam: 21105 }
         },
-        "H": {
+        "II": {
             "130x190": { steel_flow: 23300, steel_chamber: 26100, titan_flow: 46600, titan_chamber: 52200, steel_res: 24465, steel_res_cam: 27405 },
             "120x265": { steel_flow: 25400, steel_chamber: 28300, titan_flow: 50800, titan_chamber: 56600, steel_res: 26670, steel_res_cam: 29715 },
             "150x300": { steel_flow: 25400, steel_chamber: 28300, titan_flow: 50800, titan_chamber: 56600, steel_res: 26670, steel_res_cam: 29715 }
@@ -495,7 +495,7 @@
         OFFII2cam: { base: 350, step: 800 }
     };
 
-    var NO_PIPE_88_TYPES = ["H", "F", "T14", "OFFIIcam", "OFFII2cam"];
+    var NO_PIPE_88_TYPES = ["II", "F", "T14", "OFFIIcam", "OFFII2cam"];
     var NO_RES_TYPES = ["U", "F", "L", "2F", "T", "2L", "2U", "T14", "OFFIIcam", "OFFII2cam"];
     var NO_CHAMBER_TYPES = ["OFFIIcam", "OFFII2cam"];
 
