@@ -84,7 +84,7 @@
             id: "DP-BMW-B46D", brand: "BMW", type: "Даунпайп",
             title: "Downpipe BMW B46D (G-серия)",
             compat: "BMW с двигателем B46D, кузова G-серии",
-            engine: "B46D", img: "images/dp-bmw-b48.jpg",
+            engine: "B46D", img: "images/dp-bmw-b46d.jpg",
             prices: { base: 50000, hs: 60000, cat5_113: 105000, cat6_120: 120000 },
             catLabel: { hs: "+Heatshield", cat5_113: "+CAT евро5+ 300cell 113мм", cat6_120: "+CAT евро6 200cell 120мм" }
         },
