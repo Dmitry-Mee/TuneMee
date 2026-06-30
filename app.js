@@ -352,7 +352,7 @@
             id: "DP-TOY-GRY", brand: "Toyota", type: "Даунпайп",
             title: "Downpipe Toyota GR Yaris / GR Corolla 1.6 gen 2",
             compat: "Toyota GR Yaris, GR Corolla, двигатель G16E-GTS 1.6T второе поколение",
-            engine: "G16E 1.6T", img: "images/dp-bmw-b58.jpg",
+            engine: "G16E 1.6T", img: "images/dp-toy-gry.jpg",
             prices: { base: 60000, hs: 70000, cat6_120: 130000 },
             catLabel: { hs: "+Heatshield", cat6_120: "+CAT евро6 200cell 120мм" }
         },
@@ -820,38 +820,49 @@
     }
 
     // Обновление превью с fallback
-    function updateMufflerPreview() {
-        var mat = materialEl.value;
-        var baseKey = currentShape === "round" ? "round" : ovalTypeEl.value;
-
-        // Камерный материал?
-        var isChamber = (mat === "steel_chamber" || mat === "titan_chamber");
-
-        // Ключ для поиска
-        var imageKey = isChamber ? baseKey + "_chamber" : baseKey;
-
-        // Поиск изображения
-        var src = MUFFLER_IMAGES[imageKey];
-
-        // Fallback: нет камерного → берём прямоточный
-        if (!src && isChamber) {
-            src = MUFFLER_IMAGES[baseKey];
-        }
-
-        // Финальный fallback
-        if (!src) {
-            src = "images/muffler-round.jpg";
-        }
-
-        // Обновление с анимацией
-        if (mufflerPreviewImg && mufflerPreviewImg.getAttribute("src") !== src) {
-            mufflerPreviewImg.style.opacity = "0";
-            setTimeout(function () {
-                mufflerPreviewImg.src = src;
-                mufflerPreviewImg.style.opacity = "1";
-            }, 200);
-        }
+function updateMufflerPreview() {
+    var mat = materialEl.value;
+    var baseKey = currentShape === "round" ? "round" : ovalTypeEl.value;
+    
+    // Камерный вариант: либо chamber, либо резонатор камерный
+    var isChamber = (
+        mat === "steel_chamber" || 
+        mat === "titan_chamber" || 
+        mat === "steel_res_cam"    // ← ДОБАВИТЬ
+    );
+    
+    var imageKey = isChamber ? baseKey + "_chamber" : baseKey;
+    
+    var src = MUFFLER_IMAGES[imageKey];
+    
+    // Fallback 1: нет камерного → берём прямоточный
+    if (!src && isChamber) {
+        src = MUFFLER_IMAGES[baseKey];
     }
+    
+    // Fallback 2: нет прямоточного → берём камерный
+    if (!src && !isChamber) {
+        src = MUFFLER_IMAGES[baseKey + "_chamber"];
+    }
+    
+    // Fallback 3: совсем ничего → общее овальное
+    if (!src && currentShape === "oval") {
+        src = "images/muffler-oval-cc.jpg";
+    }
+    
+    // Финальный fallback
+    if (!src) {
+        src = "images/muffler-round.jpg";
+    }
+    
+    if (mufflerPreviewImg && mufflerPreviewImg.getAttribute("src") !== src) {
+        mufflerPreviewImg.style.opacity = "0";
+        setTimeout(function () {
+            mufflerPreviewImg.src = src;
+            mufflerPreviewImg.style.opacity = "1";
+        }, 200);
+    }
+}
 
     // Обновление размеров овала
     function updateOvalSizes() {
